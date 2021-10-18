@@ -26,7 +26,7 @@ func IsAfternoonAppointment(date string) bool {
 	t, _ := time.Parse(layout, date)
 	hour := t.Hour()
 
-	if hour >= 12 && hour < +18 {
+	if hour >= 12 && hour <= 18 {
 		return true
 	}
 	return false

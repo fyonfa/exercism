@@ -32,15 +32,24 @@ func IncrementVoteCount(counter *int, increment int) {
 
 // NewElectionResult creates a new election result
 func NewElectionResult(candidateName string, votes int) *ElectionResult {
-	panic("Please implement the NewElectionResult() function")
+	return &ElectionResult{
+		Name:  candidateName,
+		Votes: votes,
+	}
 }
 
 // DisplayResult creates a message with the result to be displayed
 func DisplayResult(result *ElectionResult) string {
-	panic("Please implement the DisplayResult() function")
+	// dereferencing is explicit in structs, see below the same result
+	return fmt.Sprintf("%s (%d)", (*result).Name, result.Votes)
 }
 
 // DecrementVotesOfCandidate decrements by one the vote count of a candidate in a map
 func DecrementVotesOfCandidate(results map[string]int, candidate string) {
-	panic("Please implement the DecrementVotesOfCandidate() function")
+	//value, exists := results[candidate]
+	//if !exists {
+	//	return
+	//}
+	results[candidate] = results[candidate] - 1
+
 }
